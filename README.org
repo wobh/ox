@@ -1,0 +1,98 @@
+#+TITLE: OX
+#+DATE: <2018-10-27 Sat>
+#+AUTHOR: William Clifford
+#+EMAIL: wobh@yahoo.com
+
+* Introduction
+
+OX is a binary numeration and logic system in which the position of
+digits and arrangment of parameters are aligned and ordered from least
+to greatest.
+
+* Numbers
+
+An ox-number is a string of ~#\o~ or ~#\x~ characters you can parse
+into a non-negative integer from least to greatest like this:
+
+: ox · 2^0 + ox · 2^1 + ox · 2^2 …
+
+* Logic
+
+Every ox-number may also represents a logical operation. An ox-logic
+table looks like this:
+
+| ~x~ | ~ooxx~ |
+| ~o~ | ~oxox~ |
+|-----+--------|
+| …   | ~oooo~ |
+| …   | ~xooo~ |
+| …   | ~oxoo~ |
+| …   | ~xxoo~ |
+| …   | ~ooxo~ |
+| …   | ~xoxo~ |
+| …   | ~oxxo~ |
+| …   | ~xxxo~ |
+| …   | ~ooox~ |
+| …   | ~xoox~ |
+| …   | ~oxox~ |
+| …   | ~xxox~ |
+| …   | ~ooxx~ |
+| …   | ~xoxx~ |
+| …   | ~oxxx~ |
+| …   | ~xxxx~ |
+
+The "table" continues to spiral around indefinitely, rotating such
+that each ox * 2^2^n "column" can be read as the set of parameters
+in the "header" of the successive columns. In the table above, the
+ellipses represent the sequence of digits in 16 digit ox-numbers,
+which is too large to conveniently represent, but you can rotate it
+the other way to see ox-unary logic:
+
+| ~ox~ |
+|------|
+| ~oo~ |
+| ~xo~ |
+| ~ox~ |
+| ~xx~ |
+
+** Binary logic
+
+For convenience, this table may be used to identify the usual logical
+operations in ox numbers.
+
+|                 | ~x~         | ~o~ | ~o~ | ~x~ | ~x~ |
+|                 | ~o~         | ~o~ | ~x~ | ~o~ | ~x~ |
+|-----------------+-------------+-----+-----+-----+-----|
+| Always ~o~      | ~o~         | ~o~ | ~o~ | ~o~ | ~o~ |
+| Nor             | ~¬o+¬x~     | ~x~ | ~o~ | ~o~ | ~o~ |
+| ~o~ And Not ~x~ | ~o·¬x~      | ~o~ | ~x~ | ~o~ | ~o~ |
+| Not ~x~         | ~¬x~        | ~x~ | ~x~ | ~o~ | ~o~ |
+| Not ~o~ And ~x~ | ~¬o·x~      | ~o~ | ~o~ | ~x~ | ~o~ |
+| Not ~o~         | ~¬o~        | ~x~ | ~o~ | ~x~ | ~o~ |
+| Xor             | ~o·¬x+¬o·x~ | ~o~ | ~x~ | ~x~ | ~o~ |
+| Nand            | ~¬o·¬x~     | ~x~ | ~x~ | ~x~ | ~o~ |
+| And             | ~o·x~       | ~o~ | ~o~ | ~o~ | ~x~ |
+| Equivalence     | ~o·x+¬o·¬x~ | ~x~ | ~o~ | ~o~ | ~x~ |
+| Is ~o~          | ~o~         | ~o~ | ~x~ | ~o~ | ~x~ |
+| If ~x~ then ~o~ | ~o+¬x~      | ~x~ | ~x~ | ~o~ | ~x~ |
+| Is ~x~          | ~x~         | ~o~ | ~o~ | ~x~ | ~x~ |
+| If ~o~ then ~x~ | ~¬o+x~      | ~x~ | ~o~ | ~x~ | ~x~ |
+| Or              | ~o+x~       | ~o~ | ~x~ | ~x~ | ~x~ |
+| Always ~x~      | ~x~         | ~x~ | ~x~ | ~x~ | ~x~ |
+
+* Pronunciation and spelling
+
+Pronounce "ox" like the bovine animal. OX digits and numbers may be
+pluralized "oxen". In writing, however, the ox system should be
+spelled either "ox" or "OX" and not "Ox" or "oX".
+
+* COMMENT org options
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.1 (Org mode 9.1.14)
+#+OPTIONS: ':nil *:t -:t ::t <:t H:6 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:nil
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:nil todo:nil |:t
